@@ -1,7 +1,0 @@
-package com.swipeup.user.service.services.impl;
-
-import com.swipeup.user.service.services.userService;
-
-public class UserServiceImpl implements userService{
-
-}

@@ -1,7 +1,0 @@
-package com.swipeup.user.service.repository;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
-public class userRepository implements JpaRepository<User, ID>{
-
-}
