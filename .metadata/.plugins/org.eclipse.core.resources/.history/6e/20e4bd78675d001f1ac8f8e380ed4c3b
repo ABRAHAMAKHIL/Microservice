@@ -1,0 +1,17 @@
+package com.swipeup.user.service.payload;
+
+import jakarta.persistence.Column;
+import lombok.Data;
+
+@Data
+public class UserDto {
+
+	private String userId;
+
+	private String name;
+
+	private String password;
+
+	private String about;
+
+}

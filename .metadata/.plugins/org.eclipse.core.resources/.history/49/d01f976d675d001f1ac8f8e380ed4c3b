@@ -1,0 +1,7 @@
+package com.swipeup.user.service.payload;
+
+public class UserDto {
+	
+	
+
+}

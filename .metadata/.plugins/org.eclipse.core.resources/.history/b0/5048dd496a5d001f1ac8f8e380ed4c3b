@@ -1,0 +1,8 @@
+package com.swipeup.user.service.exceptions;
+
+public class ResourceNotFoundException extends RuntimeException {
+	
+	
+	private String message;
+
+}

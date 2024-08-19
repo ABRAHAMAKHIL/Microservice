@@ -1,0 +1,9 @@
+package com.swipeup.user.service.services;
+
+public class userService {
+	
+	User saveUser(User user);
+	
+	List<User> getAlluser();
+
+}

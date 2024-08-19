@@ -1,0 +1,73 @@
+package com.swipeup.user.service.services.impl;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.swipeup.user.service.entities.User;
+import com.swipeup.user.service.exceptions.ResourceNotFoundException;
+import com.swipeup.user.service.payload.UserDto;
+import com.swipeup.user.service.repository.UserRepository;
+import com.swipeup.user.service.services.userService;
+
+@Service
+
+public class UserServiceImpl implements userService {
+
+	@Autowired
+	private UserRepository userRepo;
+
+	@Autowired
+	private ModelMapper modelMapper;
+
+	@Override
+	public UserDto saveUser(UserDto userDto) {
+
+		User userVal = this.DtoToUser(userDto);
+		User savedUser = userRepo.save(userVal);
+		return this.userToDto(savedUser);
+	}
+
+	@Override
+	public List<UserDto> getAlluser() {
+
+		List<User> userVal = userRepo.findAll();
+		List<UserDto> ListOfUserdtls = userVal.stream().map((usr) -> this.userToDto(usr)).collect(Collectors.toList());
+		return ListOfUserdtls;
+	}
+
+	@Override
+	public UserDto getUserById(String userId) {
+		User user = userRepo.findById(userId).orElseThrow(()->new ResourceNotFoundException("User","UserId",userId));
+		
+		return this.userToDto(user);
+	}
+
+	@Override
+	public void deleteUserById(String userId) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public UserDto updateUserById(String userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public User DtoToUser(UserDto userDto) {
+
+		return modelMapper.map(userDto, User.class);
+
+	}
+
+	public UserDto userToDto(User user) {
+
+		return modelMapper.map(user, UserDto.class);
+
+	}
+
+}

@@ -1,0 +1,10 @@
+package com.swipeup.user.service.exceptions;
+
+public class ResourceNotFoundException extends RuntimeException {
+	
+	
+	private String fieldName;
+	private String fieldValue;
+	private String FieldId;
+
+}

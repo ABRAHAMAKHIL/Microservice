@@ -1,0 +1,5 @@
+package com.swipeup.user.service.repository;
+
+public class userRepository {
+
+}

@@ -1,0 +1,46 @@
+package com.swipeup.user.service.services.impl;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.swipeup.user.service.payload.UserDto;
+import com.swipeup.user.service.services.userService;
+
+@Service
+
+public class UserServiceImpl implements userService{
+
+	
+	private UserRepo userRepo;
+	@Override
+	public UserDto saveUser(UserDto userDto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<UserDto> getAlluser() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public UserDto getUserById(String userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteUserById(String userId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public UserDto updateUserById(String userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

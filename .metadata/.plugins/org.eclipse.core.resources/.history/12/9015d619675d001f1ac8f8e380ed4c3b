@@ -1,0 +1,13 @@
+package com.swipeup.user.service.services;
+
+import java.util.List;
+
+import com.swipeup.user.service.entities.User;
+
+public interface userService {
+	
+	User saveUser(User user);
+	
+	List<User> getAlluser();
+
+}
