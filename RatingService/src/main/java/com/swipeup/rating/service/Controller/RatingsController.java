@@ -43,7 +43,7 @@ public class RatingsController {
 		
 	}
 	
-	@GetMapping("/{userId}")
+	@GetMapping("/user/{userId}")
 	public ResponseEntity<List<Ratings>> listOfRatingByuserId(@PathVariable String userId){
 		
 		List<Ratings>	ratings  = ratingService.getRatingsByUserId(userId);
@@ -53,10 +53,10 @@ public class RatingsController {
 		
 	}
 	
-	@GetMapping("/{hotelId}")
+	@GetMapping("/hotel/{hotelId}")
 	public ResponseEntity<List<Ratings>> listOfRatingByHotelId(@PathVariable String hotelId){
 		
-		List<Ratings>	ratings  = ratingService.getRatingsByUserId(hotelId);
+		List<Ratings>	ratings  = ratingService.getRatingsByHotelId(hotelId);
 		
 		return ResponseEntity.status(HttpStatus.FOUND).body(ratings);
 		
