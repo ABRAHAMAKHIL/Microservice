@@ -1,9 +1,13 @@
 package com.swipeup.user.service.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import lombok.Data;
 
 @Entity
@@ -20,5 +24,8 @@ public class User {
 	private String password;
 	@Column(name = "usrAbt")
 	private String about;
+	
+	@Transient
+	private List<Ratings> ratings = new ArrayList<>();
 
 }
