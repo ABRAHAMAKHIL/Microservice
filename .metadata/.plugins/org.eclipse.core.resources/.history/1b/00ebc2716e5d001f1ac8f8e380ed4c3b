@@ -1,6 +1,0 @@
-package com.swipeup.user.service;
-
-
-public class GlobalExceptionHandler {
-
-}

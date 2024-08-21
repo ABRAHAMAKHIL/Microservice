@@ -1409,3 +1409,6 @@
 2024-08-21 09:42:59,403 [Worker-70: Launching RatingService - RatingServiceApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
 2024-08-21 09:42:59,409 [Worker-70: Launching RatingService - RatingServiceApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
 2024-08-21 09:42:59,413 [Worker-70: Launching RatingService - RatingServiceApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\akhil_kdeifba\Desktop\Microservices\RatingService\src\test\resources
+2024-08-21 09:46:09,222 [Worker-64: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src\main\resources to target\classes
+2024-08-21 09:46:09,246 [Worker-64: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-08-21 09:46:09,249 [Worker-64: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\akhil_kdeifba\Desktop\Microservices\RatingService\src\test\resources
