@@ -2,9 +2,11 @@ package com.swipeup.user.service.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class Ratings {
 	
 	private String RatingId;

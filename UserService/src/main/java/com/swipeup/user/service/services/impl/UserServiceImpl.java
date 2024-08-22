@@ -1,18 +1,24 @@
 package com.swipeup.user.service.services.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
+import com.swipeup.user.service.entities.Ratings;
 import com.swipeup.user.service.entities.User;
 import com.swipeup.user.service.exceptions.ResourceNotFoundException;
 import com.swipeup.user.service.payload.UserDto;
 import com.swipeup.user.service.repository.UserRepository;
 import com.swipeup.user.service.services.UserService;
+
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -22,6 +28,13 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private ModelMapper modelMapper;
+	
+	@Autowired
+	
+	private RestTemplate restTemplate;
+	
+	
+	private Logger log = LoggerFactory.getLogger(UserServiceImpl.class);
 
 	@Override
 	public UserDto saveUser(UserDto userDto) {
@@ -48,7 +61,10 @@ public class UserServiceImpl implements UserService {
 	public UserDto getUserById(String userId) {
 		User user = this.userRepo.findById(userId)
 				.orElseThrow(() -> new ResourceNotFoundException("User", "UserId", userId));
-
+	ArrayList<Ratings> ratings = restTemplate.getForObject("http://localhost:8083/api/ratings/user/45a6ca87-208e-47c7-b767-e10fd9d91601U01", ArrayList.class);
+		user.setRatings(ratings);
+		User userVal = this.userRepo.save(user);
+		log.info("{}",userVal);
 		return this.userToDto(user);
 	}
 
