@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.swipeup.user.service.payload.ApiResponse;
@@ -34,9 +35,10 @@ public class UserController {
 	}
 
 	@GetMapping("/")
-	public ResponseEntity<List<UserDto>> getAllUser() {
+	public ResponseEntity<List<UserDto>> getAllUser(@RequestParam(name="pageNumber",defaultValue = "1",required = false)Integer PageNumber,
+			@RequestParam(name="pageSize",defaultValue = "1",required = false)Integer PageSize) {
 
-		List<UserDto> savedUser = this.userService.getAlluser();
+		List<UserDto> savedUser = this.userService.getAlluser(PageNumber,PageSize);
 
 		return new ResponseEntity<List<UserDto>>(savedUser, HttpStatus.FOUND);
 	}

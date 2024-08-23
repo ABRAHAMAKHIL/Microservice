@@ -8,7 +8,7 @@ public interface UserService {
 
 	UserDto saveUser(UserDto userDto);
 
-	List<UserDto> getAlluser();
+	List<UserDto> getAlluser(Integer PageNumber,Integer PageSize);
 
 	UserDto getUserById(String userId);
 
