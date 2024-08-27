@@ -51,17 +51,16 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public List<UserDto> getAlluser(Integer PageNumber,Integer PageSize) {
-		
-		
+	public List<UserDto> getAlluser(Integer PageNumber, Integer PageSize) {
 		
 		Pageable pg = PageRequest.of(PageNumber, PageSize);
-		
-		
-
 		Page<User> userVal = this.userRepo.findAll(pg);
 		
 		List<User> user= userVal.getContent();
+		@SuppressWarnings("unchecked")
+		ArrayList<Ratings> ratings = restTemplate.getForObject("http://localhost:8083/api/ratings/user/"+user.get(1).getUserId(), ArrayList.class);
+		user.get(1).setRatings(ratings);
+		
 		List<UserDto> ListOfUserdtls = user.stream().map((usr) -> this.userToDto(usr)).collect(Collectors.toList());
 		return ListOfUserdtls;
 	}
@@ -70,7 +69,8 @@ public class UserServiceImpl implements UserService {
 	public UserDto getUserById(String userId) {
 		User user = this.userRepo.findById(userId)
 				.orElseThrow(() -> new ResourceNotFoundException("User", "UserId", userId));
-	ArrayList<Ratings> ratings = restTemplate.getForObject("http://localhost:8083/api/ratings/user/45a6ca87-208e-47c7-b767-e10fd9d91601U01", ArrayList.class);
+	@SuppressWarnings("unchecked")
+	ArrayList<Ratings> ratings = restTemplate.getForObject("http://localhost:8083/api/ratings/user/"+user.getUserId(), ArrayList.class);
 		user.setRatings(ratings);
 		User userVal = this.userRepo.save(user);
 		log.info("{}",userVal);
